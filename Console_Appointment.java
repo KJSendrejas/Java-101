@@ -7,7 +7,7 @@ public class Console_Appointment {
 
         int option;
         do{
-            System.out.println("Enter Option");
+            System.out.println("[1] Add Appointment\n[2] View All Appointments\n[3] Exit\nEnter Option\n");
             option = scan.nextInt();
 
             switch (option) {
@@ -16,15 +16,35 @@ public class Console_Appointment {
                     System.out.println("Enter Appoinment ID");
                     int id = scan.nextInt();
                     System.out.println("Enter Date");
-                    String date = scan.nextLine();
+                    String date = scan.next();
                     System.out.println("Enter Time");
+                    String time = scan.next();
+                    System.out.println("Purpose");
+                    String purpose = scan.next();
+                    System.out.println("Enter Status");
+                    String status = scan.next();
+
+                    allAppointnemts+= "\n" + 
+                        "Appointment ID: " + id +"\n"+
+                        "Date: " + date +"\n"+
+                        "Time: " + time +"\n"+
+                        "Purpose: " + purpose +"\n"+
+                        "Status: " + status +"\n"+
+                        "-----------------------------";
                     break;
+                
+                case 2:
+                    
+                    System.out.println(
+                        "===APPOINTMENTS==="+"\n"+
+                        allAppointnemts
+                    );
             
                 default:
                     break;
             }
 
-        }while(option!=4);
+        }while(option!=3);
 
     }
     
