@@ -4,7 +4,6 @@ public class Console_Appointment {
     static String allAppointnemts="";
     public static void main(String[]args){
         Scanner scan = new Scanner(System.in);
-
         int option;
         do{
             System.out.println("[1] Add Appointment\n[2] View All Appointments\n[3] Exit\nEnter Option\n");
@@ -39,7 +38,7 @@ public class Console_Appointment {
                         "===APPOINTMENTS==="+"\n"+
                         allAppointnemts
                     );
-            
+                    break;
                 default:
                     break;
             }
