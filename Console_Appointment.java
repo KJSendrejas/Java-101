@@ -32,20 +32,15 @@ public class Console_Appointment {
                         "Status: " + status +"\n"+
                         "-----------------------------";
                     break;
-                
                 case 2:
-                    
                     System.out.println(
                         "===APPOINTMENTS==="+"\n"+
                         allAppointnemts
                     );
-            
+                    break;
                 default:
                     break;
             }
-
         }while(option!=3);
-
     }
-    
 }
