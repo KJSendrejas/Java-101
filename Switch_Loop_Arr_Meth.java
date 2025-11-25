@@ -1,61 +1,59 @@
 import java.util.Scanner;
 public class Switch_Loop_Arr_Meth{
-    public static void main(String[] args){
+    public static void main(String[]args){
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter number of products: ");
-        int numprod = sc.nextInt();
+        int numproducts = sc.nextInt();
 
-        String products[] = new String[numprod];
-        int quantity[] = new int[numprod];
+        String products[] = new String[numproducts];
+        int quantity[] = new int[numproducts];
 
         for(int i=0; i<products.length; i++){
-            System.out.println("Enter name of product: " + (i+1)+ ": ");
+            System.out.println("Enter name of product " + (i+1)+ ": ");
             products[i] = sc.next();
-            System.out.println("Enter quantity of " + products[i] + ": ");
+            System.out.println("Enter quantity of "+ products[i]+ ": ");
             quantity[i] = sc.nextInt();
         }
 
         displayAll(products, quantity);
-        System.out.println("\nTotal Quantity: " + countQuantity(quantity));
-        System.out.println("Number of products out-of-stock:" + countOutofStock(quantity));
-        System.out.println("Number of products in-stock:" + countInStock(quantity));
+        System.out.println("\nTotal quantity of all products: " + getTotal(quantity));
+        System.out.println("\nNumber of products out of stock: " + outstock(quantity));
+        System.out.println("\nNumber of products in stock: " + instock(quantity));
     }
 
     public static void displayAll(String products[], int quantity[]){
-        System.out.println("\nProduct and Quantities");
+        System.out.println("\nProducts and Quantities:");
         for(int i=0; i<products.length; i++){
-            System.out.println(products[i] + ": " + quantity[i]);
+            System.out.println(products[i] + " - " + quantity[i]);
         }
     }
 
-    public static int countQuantity(int quantity[]){
-        int total = 0;
+    public static int getTotal(int quantity[]){
+       int count = 0;
+       for(int i=0; i<quantity.length; i++){
+        count+=quantity[i];
+       } 
+      return count;
+    }
+
+    public static int outstock(int quantity[]){
+        int count =0;
         for(int i=0; i<quantity.length; i++){
-            total+=quantity[i];
-        }
-        return total;
-    }
-
-    public static int countOutofStock(int quantity[]){
-        int countOutofStock = 0;
-        for(int i=0; i<quantity.length;i++){
             if(quantity[i]==0){
-            countOutofStock++; // counOurtofStock +=1;
+                count++;
             }
         }
-        return countOutofStock;
+        return count;
     }
 
-    public static int countInStock(int quantity[]){
-        int countInStock = 0;
-        for(int i=0; i<quantity.length;i++){
+    public static int instock(int quantity[]){
+        int count =0;
+        for(int i=0; i<quantity.length; i++){
             if(quantity[i]>0){
-            countInStock++; // countInStock +=1;
+                count++;
             }
         }
-        return countInStock;
+        return count;
     }
-
-
 
 }
