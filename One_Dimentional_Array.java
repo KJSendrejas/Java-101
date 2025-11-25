@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class OneDimentional_Array {
+public class One_Dimentional_Array {
     public static void main(String[] args){
         //declaration
         //datatype[] arrayname = new datatype[arraysize];
