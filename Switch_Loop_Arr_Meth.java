@@ -1,6 +1,8 @@
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
 public class Switch_Loop_Arr_Meth{
-    public static void main(String[]args){
+    public static void main(String[]args) throws IOException{
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter number of products: ");
         int numproducts = sc.nextInt();
@@ -19,13 +21,21 @@ public class Switch_Loop_Arr_Meth{
         System.out.println("\nTotal quantity of all products: " + getTotal(quantity));
         System.out.println("\nNumber of products out of stock: " + outstock(quantity));
         System.out.println("\nNumber of products in stock: " + instock(quantity));
+
+        FileWriter  fw = new FileWriter("Inventory.txt", true);
+       fw.write("\nTotal quantity of all products: " + getTotal(quantity));
+        fw.write("\nNumber of products out of stock: " + outstock(quantity));
+        fw.write("\nNumber of products in stock: " + instock(quantity));
+        fw.close();
     }
 
-    public static void displayAll(String products[], int quantity[]){
-        System.out.println("\nProducts and Quantities:");
+    public static void displayAll(String products[], int quantity[]) throws IOException{
+        FileWriter  fw = new FileWriter("Inventory.txt", true);
+        fw.write("\nProducts and Quantities:\n" );
         for(int i=0; i<products.length; i++){
-            System.out.println(products[i] + " - " + quantity[i]);
+            fw.write(products[i] + " - " + quantity[i] + "\n");
         }
+        fw.close();
     }
 
     public static int getTotal(int quantity[]){
