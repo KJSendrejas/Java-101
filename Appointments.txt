@@ -1,6 +1,0 @@
-Appointment ID | Date | Time | Purpose | Status
-2 | 11-14-2025 | 2:00PM | Seminar | Cancelled
-3 | 11-15-2025 | 3:00PM | Seminar | Available
-4 | 11-25-2025 | 1:00PM | Seminar | Available
-5 | 11-26-2025 | 5:00AM | Training | Available
-6 | 12-12-2025 | 1:00PM | Competition | Available
