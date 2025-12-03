@@ -1,5 +1,6 @@
 public class User_Defined_Methods {
    public static void main(String[] args) {
+        System.out.println(countDown(3));
         printMessage();
         calculate();
         sum(10,20);
@@ -50,6 +51,13 @@ public class User_Defined_Methods {
         total+=arr[i];
        }
         return total;
+    }
+
+    static int countDown(int n){
+    while(n > 0){
+        n--;
+    }
+    return n;
     }
 
 
