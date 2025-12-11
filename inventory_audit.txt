@@ -1,0 +1,7 @@
+Item 1: 1 units - Critical Low
+Item 2: 2 units - Critical Low
+Item 3: 3 units - Critical Low
+Item 1: 500 units - Overstocked
+Item 2: 2546 units - Overstocked
+Item 3: 35888 units - Overstocked
+Item 4: 0 units - Critical Low
