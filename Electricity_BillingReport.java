@@ -1,0 +1,79 @@
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
+
+public class Electricity_BillingReport {
+
+    public static void main(String[] args)throws IOException { //throws IOException  --if not wrapped with the try-catch block --if ever to use try-catch must wrap the whole main method.
+        Scanner sc = new Scanner(System.in);
+        System.out.println("How mnay households?:");
+        int hh = sc.nextInt();
+
+        String[] householdNames = new String[hh];
+        double[] consumption = new double[hh];
+        double[] billAmount = new double[hh];
+        String[] category = new String[hh];
+        double[] discounted = new double[hh];
+
+        for(int i = 0; i<householdNames.length;i++){
+            System.out.println("Enter household name:");
+            householdNames[i] = sc.next(); //input for household name
+            System.out.println("Enter monthly consumtion (in kWh): ");
+            consumption[i] = sc.nextDouble(); //input for consumption
+            category[i]=getUsageCategory(consumption[i]); //add category to array based from the getUsageCategory method, getUsageCategory method returns string category based on the passed value to the method from the consumption @ line 33
+            billAmount[i]=computeBill(consumption[i]); //add original bill tp the array based from the computed bill computation, computeBill method returns double value, calculated (multiplied) based on the given rate per kwh. @ line 45
+            discounted[i]=computeBill((consumption[i]*applyDiscount(billAmount[i], category[i]))); //add the discounted bill to the array, calculated using the values from the returned values from computeBill method @ line 45 and the applyDiscount method @ line 57 ---- double bill from the applyDiscount method was not used.
+
+            save(householdNames[i],consumption[i],category[i],billAmount[i],discounted[i]); //writes all the data from the arrays: householdNames, consumption, category, billAmount, and discounted. ----all accessing of the arrays are controlled by one for loop only.
+
+        }
+        System.out.println("Bills Recorded in ElectricityBillingreport.txt file");
+    }
+
+     public static String getUsageCategory(double consumption){
+        String category = "";
+        if(consumption>=500){
+            category="High Usage";
+        }else if(consumption>=200){
+            category="Average Usage";
+        }else{
+            category="Low Usage";
+        }
+        return category;
+     }
+
+      public static double computeBill(double consumption){
+        double cons=0.0;
+        if(consumption<200){
+            cons=8.00*consumption;
+        }else if(consumption<499){
+            cons=10.00*consumption;
+        }else if(consumption>=500){
+            cons=12.00*consumption;
+        }
+        return cons;
+      }
+
+       public static double applyDiscount(double bill, String category){
+        double disc = 0.0;
+        if(category.equals("Low Usage")){
+            disc=0.01;
+        }else{
+            disc=0.0;
+        }
+        return disc;
+       }
+
+
+    public static void save(String hh, double cons, String cat, double orbill, double disbill) throws IOException{ //throws IOException  --if not wrapped with the try-catch block --if ever to use try-catch must wrap the whole save method.
+        FileWriter fw = new FileWriter("ElectricityBillingReport.txt", true);
+        fw.write("\n");
+        fw.write("Household: " + hh + "\n");
+        fw.write("Consumption: " + cons + "kWh"+ "\n");
+        fw.write("Category: " + cat+ "\n");
+        fw.write("Original Bill: " + orbill+ "\n");
+        fw.write("Discounted Bill: " + disbill+ "\n");
+        fw.close();
+    }
+    
+}

@@ -1,0 +1,15 @@
+Household: dave
+Consumption: 1000.0kWh
+Category: High Usage
+Original Bill: 12000.0
+Discounted Bill: 0.0
+Household: jude
+Consumption: 10.0kWh
+Category: Low Usage
+Original Bill: 80.0
+Discounted Bill: 0.8
+Household: cha
+Consumption: 488.0kWh
+Category: Average Usage
+Original Bill: 4880.0
+Discounted Bill: 0.0
