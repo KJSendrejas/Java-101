@@ -2,7 +2,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.util.Scanner;
 
-public class Main {
+public class Inventory_Audit_Activity {
 	public static void main(String[] args) {
 
 		Scanner sc = new Scanner(System.in);
