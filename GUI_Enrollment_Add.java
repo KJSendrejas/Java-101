@@ -4,7 +4,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 import javax.swing.*;
-import javax.swing.JTextField;
 import javax.swing.table.*;
 
 
@@ -13,6 +12,7 @@ public class GUI_Enrollment_Add extends JFrame {
 	static DefaultTableModel model;
 	static JTable table;
 	static JScrollPane scrollPane;
+
 
     public static void main(String[] args) {
         new GUI_Enrollment_Add();
@@ -69,13 +69,14 @@ public class GUI_Enrollment_Add extends JFrame {
 		textField_4.setBounds(48, 354, 188, 27);
 		add(textField_4);
 
-		String[] columns = {"Name", "Address", "Course", "Age", "Last School"};
-		model = new DefaultTableModel(columns, 0);
+		String columns[] = {"Name","Address", "Course", "Age", "Last School"};
+		model = new DefaultTableModel(columns,0);
 		table = new JTable(model);
 		scrollPane = new JScrollPane(table);
 		add(scrollPane).setBounds(250,50,400,300);
 
-		refreshTable();
+		readFromFile();
+		
 
 
         btnNewButton.addActionListener(e-> {
@@ -91,7 +92,8 @@ public class GUI_Enrollment_Add extends JFrame {
                 ex.printStackTrace();
             }
 
-			refreshTable();
+			readFromFile();
+		
         });
 
 
@@ -112,16 +114,20 @@ public class GUI_Enrollment_Add extends JFrame {
         fw.close();
     }
 
-	public static void refreshTable(){
+
+	public static void readFromFile(){
 		model.setRowCount(0);
 		try(BufferedReader br = new BufferedReader(new FileReader("EnrolledStudent.txt"))){
 			String line;
-			while((line = br.readLine()) != null){
-				String[] row = line.split("#");
+			while((line = br.readLine()) !=null){
+				String row[] = line.split("#");
 				model.addRow(row);
 			}
 		}catch(IOException e){
-			e.printStackTrace();
+
 		}
+
 	}
+
+
 }
