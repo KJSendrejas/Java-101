@@ -64,10 +64,10 @@ public class GUI_Enrollment_Add extends JFrame {
 		lblTotalBill_1.setBounds(48, 324, 175, 19);
 		add(lblTotalBill_1);
 		
-		JTextField textField_4 = new JTextField();
-		textField_4.setColumns(10);
-		textField_4.setBounds(48, 354, 188, 27);
-		add(textField_4);
+		JTextField txtSchool = new JTextField();
+		txtSchool.setColumns(10);
+		txtSchool.setBounds(48, 354, 188, 27);
+		add(txtSchool);
 
 		String columns[] = {"Name","Address", "Course", "Age", "Last School"};
 		model = new DefaultTableModel(columns,0);
@@ -85,7 +85,7 @@ public class GUI_Enrollment_Add extends JFrame {
             String address = txtAddress.getText();
             String course = txtCourse.getText();
             String age = txtAge.getText();
-            String school = textField_4.getText();
+            String school = txtSchool.getText();
             try {
                 savetoFile(name, address, course, age, school);
             } catch (Exception ex) {
