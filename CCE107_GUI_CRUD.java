@@ -108,15 +108,6 @@ public class CCE107_GUI_CRUD extends JFrame{
 
         refreshTable();
 
-
-        btnRegister.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                registerStudent();
-            }
-        });
-
-
         btnUpdate.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
