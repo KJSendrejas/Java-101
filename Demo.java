@@ -2,6 +2,8 @@ import javax.swing.table.*;
 import java.io.*;
 import java.util.ArrayList;
 import javax.swing.*;
+
+
 import java.awt.event.*;
 
 
@@ -188,11 +190,12 @@ public class Demo extends JFrame{
 		//setUndecorated(true);
 		//setResizable(false);
 		setTitle("Billing System");
-		//setLocationRelativeTo(null);
+		setLocationRelativeTo(null);
 		setLayout(null);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setSize(700,500);
 		setVisible(true);
+		//setContentPane(setBackground(new Color()));
 	}
 
 

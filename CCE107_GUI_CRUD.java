@@ -142,10 +142,10 @@ public class CCE107_GUI_CRUD extends JFrame{
             }
         });
 
-//        JLabel lblNewLabel_2 = new JLabel("New label");
-//        lblNewLabel_2.setIcon(new ImageIcon("C:\\Users\\Jude\\Pictures\\Picture1.png"));
-//        lblNewLabel_2.setBounds(0, 0, 1013, 653);
-//        getContentPane().add(lblNewLabel_2);
+       JLabel lblNewLabel_2 = new JLabel("New label");
+       lblNewLabel_2.setIcon(new ImageIcon("C:\\Users\\Jude\\Pictures\\Picture1.png"));
+       lblNewLabel_2.setBounds(0, 0, 1013, 653);
+       getContentPane().add(lblNewLabel_2);
 
 
         setTitle("Enrollment System");

@@ -9,9 +9,10 @@ public class GridLayoutDemo {
 
         frame.setLayout(new GridLayout(2, 3, 10, 10)); // rows, cols, hgap, vgap
 
-        for (int i = 1; i <= 6; i++) {
-            frame.add(new JButton("Btn " + i));
-        }
+        frame.add(new JButton("Button 1"));
+        frame.add(new JButton("Button 2"));
+        frame.add(new JButton("Button 3"));
+        frame.add(new JButton("Button 4"));
 
 
         frame.setLocationRelativeTo(null);
